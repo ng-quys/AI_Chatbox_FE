@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  font-family: Arial;
+}
+.logo {
+  width: 80px;
+  height: 80px;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+/* LEFT SIDE */
+.left {
+  flex: 0.5;
+  background: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  transform: translateY(-60px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+
+}
+
+
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 16px;
+  border-radius: 10px;
+
+  background: #0f766e;   /* nền xanh đậm */
+  color: #ffff00;        /* chữ vàng */
+
+  font-size: 19px;
+  font-weight: 600;
+
+  border: 2px solid black;
+
+  margin-bottom: 12px;
+}
+
+.left h1 {
+  font-size: 30px;
+  margin: 0;
+  
+}
+.black {
+  color: black;
+}
+
+.green {
+  color: #175a5a;
+}
+
+.left p {
+  margin-top: 20px;
+  max-width: 320px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.content {
+  text-align: center;   /* QUAN TRỌNG NHẤT */
+  max-width: 420px;
+}
+
+/* RIGHT SIDE */
+.right {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f7fb;
+  padding: 40px;
+  
+}
+
+.card {
+  width: 380px;
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+
+
+.input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  background: #175a5a;
+  color: #f6f902;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 19px;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.link {
+  margin-top: 15px;
+  text-align: center;
+  color: #175a5a;
+  cursor: pointer;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 10px 0 16px;
+  font-size: 13px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+}
+
+.forgot {
+  color: #0f766e;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+input[type="checkbox"] {
+  accent-color: #0f766e;
+}
