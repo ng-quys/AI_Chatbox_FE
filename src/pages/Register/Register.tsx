@@ -1,4 +1,4 @@
-import AuthLayout from "./AuthLayout";
+import AuthLayout from "./../../layouts/AuthLayout.tsx";
 import { useNavigate } from "react-router-dom";
 
 export default function Register() {
