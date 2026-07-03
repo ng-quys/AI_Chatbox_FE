@@ -1,33 +1,60 @@
-import AuthLayout from "./../../layouts/AuthLayout.tsx";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FiMail, FiLock, FiEyeOff } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import AuthLayout from "../../layouts/AuthLayout";
+import logo from "../../assets/images/logo.png";
 
 export default function Login() {
-  const navigate = useNavigate();
-
   return (
     <AuthLayout>
-      <div className="card">
-        <div className="brand">
-          <img src="/logo.png" alt="logo" className="logo" />
-          <h1>ETECHS</h1>
-        </div>
+      <div className="login-card">
+        <img src={logo} alt="ETECHS" className="login-logo" />
 
-        <input className="input" placeholder="Email" />
-        <input className="input" type="password" placeholder="Mật khẩu" />
-        <div className="login-options">
-          <label className="remember">
-            <input type="checkbox" />
-            Ghi nhớ đăng nhập
-          </label>
+        <form className="login-form">
+          <div className="form-group">
+            <label>Địa chỉ Email</label>
+            <div className="input-wrapper">
+              <FiMail className="input-icon" />
+              <input type="email" placeholder="Email" />
+            </div>
+          </div>
 
-          <span className="forgot">Quên mật khẩu?</span>
-        </div>
-        <button className="button">Đăng nhập</button>
+          <div className="form-group">
+            <label>Mật khẩu</label>
+            <div className="input-wrapper">
+              <FiLock className="input-icon" />
+              <input type="password" placeholder="Password" />
+              <FiEyeOff className="input-eye" />
+            </div>
+          </div>
 
-        <p className="link" onClick={() => navigate("/register")}>
-          <span className="black">Chưa có tài khoản? </span>
-          <span className="green">Đăng ký</span>
-        </p>
+          <div className="login-options">
+            <label className="remember-login">
+              <input type="checkbox" />
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+
+            <Link to="/forgot-password">Quên mật khẩu?</Link>
+          </div>
+
+          <button type="submit" className="login-submit">
+            Đăng nhập
+          </button>
+
+          <div className="divider">
+            <span>hoặc</span>
+          </div>
+
+          <button type="button" className="google-btn">
+            <FcGoogle className="google-icon" />
+            <span>Sign in with Google</span>
+          </button>
+
+          <p className="register-text">
+            Chưa có tài khoản?{" "}
+            <Link to="/register">Đăng ký miễn phí</Link>
+          </p>
+        </form>
       </div>
     </AuthLayout>
   );

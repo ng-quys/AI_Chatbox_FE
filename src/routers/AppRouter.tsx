@@ -4,6 +4,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Home from "../pages/Dashboard/Home";
 import MainLayout from "../layouts/MainLayout";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 
 export default function AppRouter() {
   return (
@@ -24,9 +25,11 @@ export default function AppRouter() {
         />
 
         {/* Điều hướng mặc định */}
-       <Route path="/" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
       </Routes>
     </BrowserRouter>
   );
