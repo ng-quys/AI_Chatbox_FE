@@ -1,24 +1,48 @@
 import type { ReactNode } from "react";
+import "../styles/auth.css";
 
-export default function AuthLayout({ children }: { children: ReactNode }) {
-    return (
-        <div className="wrapper">
-            {/* RIGHT (form sẽ qua bên trái) */}
-            <div className="right">{children}</div>
+type AuthLayoutProps = {
+  children: ReactNode;
+};
 
-            {/* LEFT (branding qua bên phải) */}
-            <div className="left">
-                <div className="content">
-                <div className="badge">Công cụ hỗ trợ</div>
-                <h1>
-                    <span className="black">TẠO ĐỀ </span>
-                    <span className="green">KIỂM TRA</span>
-                </h1>
-                <p>
-                    <span className="green">AI tạo đề kiểm tra</span> thuộc ETECHS giúp giáo viên nhanh chóng tạo đề thi chất lượng, đa dạng và phù hợp với từng cấp độ học sinh, tiết kiệm thời gian và nâng cao hiệu quả giảng dạy.
-                </p>
-                </div>
+export default function AuthLayout({ children }: AuthLayoutProps) {
+  return (
+    <div className="auth-page">
+      <section className="auth-intro">
+        <div className="auth-intro-content">
+          <h1 className="auth-intro-title">
+            Kết nối  <span className="text-white">giáo viên</span> với công
+            <br />
+            cụ tạo đề thông minh
+          </h1>
+
+          <p className="auth-intro-desc">
+            Hệ thống hỗ trợ giảng viên soạn đề, quản lý ngân hàng câu hỏi và
+            xuất đề thi nhanh chóng, chính xác, phù hợp với từng môn học.
+          </p>
+
+          <div className="auth-feature-row">
+            <div className="auth-feature-btn">
+              <span>🪄</span>
+              Tạo đề nhanh
             </div>
+
+            <div className="auth-feature-btn">
+              <span>📦</span>
+              Ngân hàng câu hỏi
+            </div>
+          </div>
+
+          <div className="auth-feature-btn auth-feature-center">
+            <span>🔗</span>
+            Xuất đề chuẩn mẫu
+          </div>
         </div>
-    );
+
+        <p className="auth-copyright">2026 ETECHS. All Rights Reserved.</p>
+      </section>
+
+      <section className="auth-form-side">{children}</section>
+    </div>
+  );
 }
