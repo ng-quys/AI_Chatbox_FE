@@ -211,3 +211,19 @@
     font-size: 20px;
   }
 }
+
+/* Ép chữ cảnh báo lỗi thành màu đỏ rực */
+.validation-error-text {
+  color: #ef4444 !important;
+  font-size: 12px !important;
+  text-align: left !important;
+  margin-top: 4px !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* Đổi viền bọc ngoài input thành màu đỏ khi có lỗi */
+.border-red-500 {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px #ef4444 !important;
+}

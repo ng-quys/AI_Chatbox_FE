@@ -1,9 +1,6 @@
 import type { ApiResponse } from "./api.type";
 
-export type LoginRequest = {
-  email: string;
-  password: string;
-};
+
 
 export type LoginData = {
   accessToken: string;

@@ -1,5 +1,5 @@
-import type { LoginRequest, RegisterRequest } from "../types/auth.type";
-
+import type { RegisterRequest } from "../types/auth.type";
+import * as yup from "yup";
 export type FormErrors<T> = Partial<Record<keyof T, string>>;
 
 export type RegisterForm = {
@@ -34,23 +34,30 @@ export const getPasswordRules = (password: string): PasswordRules => {
   };
 };
 
-export const validateLogin = (
-  form: LoginRequest
-): FormErrors<LoginRequest> => {
-  const errors: FormErrors<LoginRequest> = {};
+export const loginSchema = yup.object({
+  email: yup
+    .string()
+    .required('Email là bắt buộc, không được để trống') 
+    .email('Email phải đúng định dạng (Ví dụ: user@etechs.edu.vn)') 
+    .min(5, 'Email phải có ít nhất 5 ký tự') 
+    .max(50, 'Email không được vượt quá 50 ký tự'), 
 
-  if (!form.email.trim()) {
-    errors.email = "Vui lòng nhập email";
-  } else if (!emailRegex.test(form.email)) {
-    errors.email = "Email không hợp lệ";
-  }
+  password: yup
+    .string()
+    .required('Mật khẩu không được để trống') 
+    .min(6, 'Mật khẩu phải chứa từ 6 đến 20 ký tự') 
+    .max(20, 'Mật khẩu không được vượt quá 20 ký tự'), 
 
-  if (!form.password.trim()) {
-    errors.password = "Vui lòng nhập mật khẩu";
-  }
 
-  return errors;
-};
+  role: yup
+    .string()
+    .oneOf(['Teacher', 'Admin', 'Student'], 'Vai trò không hợp lệ') 
+    .default('Teacher'),
+    
+  rememberMe: yup.boolean().default(false)
+}).required();
+
+export type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export const validateRegister = (
   form: RegisterRequest
@@ -150,3 +157,32 @@ export const validateRegisterStepTwo = (
 
   return errors;
 };
+  
+export const forgotStepOneSchema = yup.object({
+  email: yup
+    .string()
+    .required("Vui lòng nhập email")
+    .email("Email không đúng định dạng (Ví dụ: name@etechs.vn)")
+    .max(50, "Email không được vượt quá 50 ký tự"),
+}).required();
+
+export const forgotStepTwoSchema = yup.object({
+  otp: yup
+    .string()
+    .required("Vui lòng nhập đủ mã OTP")
+    .matches(/^\d{6}$/, "Mã OTP phải gồm đúng 6 chữ số"),
+}).required();
+
+export const forgotStepThreeSchema = yup.object({
+  password: yup
+    .string()
+    .required("Vui lòng nhập mật khẩu")
+    .min(8, "Mật khẩu phải có ít nhất 8 ký tự")
+    .matches(/[A-Z]/, "Mật khẩu phải có ít nhất 1 chữ cái in hoa")
+    .matches(/[a-z]/, "Mật khẩu phải có ít nhất 1 chữ cái thường")
+    .matches(/[\d\W_]/, "Mật khẩu phải có ít nhất 1 chữ số hoặc ký tự đặc biệt"),
+  confirmPassword: yup
+    .string()
+    .required("Vui lòng xác nhận mật khẩu")
+    .oneOf([yup.ref("password")], "Mật khẩu xác nhận không khớp"), // Tự động check khớp[cite: 10, 12]
+}).required();
