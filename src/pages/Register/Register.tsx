@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FiMail,
   FiChevronDown,
@@ -54,7 +54,8 @@ const onlyLettersRegex = /^[A-Za-zÀ-ỹ\s]+$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Register() {
-  const [step, setStep] = useState<RegisterStep>(1);
+  const [step, setStep] = useState<RegisterStep>(1)
+  const navigate = useNavigate();;
 
   const [form, setForm] = useState<RegisterForm>({
     lastName: "",
@@ -142,10 +143,34 @@ export default function Register() {
     }
   };
 
-  const handleSubmit = () => {
+const handleSubmit = async () => {
+
     if (!validateStepTwo()) return;
 
-    console.log("Register form:", form);
+    try {
+      const requestBody = {
+        fullName: `${form.lastName} ${form.firstName}`.trim(), 
+        email: form.email,
+        password: form.password,
+        phoneNumber: form.phone, 
+        
+        teachingSubject: form.subject || undefined,   
+        teachingGrade: form.grade || undefined,      
+        organizationName: form.organization || undefined, 
+      };
+
+      console.log("🚀 Request JSON gửi lên Backend:", JSON.stringify(requestBody, null, 2));
+
+      // const response = await axios.post("/api/auth/register", requestBody);
+      
+      await new Promise((resolve) => setTimeout(resolve, 1000)); 
+      
+      alert("Đăng ký tài khoản giáo viên thành công!");
+      navigate("/login");
+
+    } catch (error) {
+      console.error("Lỗi hệ thống khi gửi request đăng ký:", error);
+    }
   };
 
   return (
