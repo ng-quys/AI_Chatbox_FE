@@ -187,7 +187,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: -4px 4px 18px;
+  margin: -4px 4px 10px;
   font-size: 14px;
 }
 
@@ -212,19 +212,7 @@
   letter-spacing: 0.5px;
 }
 
-.login-submit {
-  width: 376px;
-  height: 48px;
-  border: none;
-  border-radius: 15px;
-  background: #176763;
-  color: #f1ff22;
-  font-size: 18px;
-  font-weight: 900;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-}
+
 
 .divider {
   position: relative;
@@ -364,4 +352,88 @@
 .border-red-500 {
   border-color: #ef4444 !important;
   box-shadow: 0 0 0 1px #ef4444 !important;
+}
+
+/* ==========================================================================
+   CẬP NHẬT HIỆU ỨNG CHO 3 NÚT TÍNH NĂNG (AUTH FEATURE BUTTONS)
+   ========================================================================== */
+
+.auth-feature-btn {
+  min-width: 230px;
+  height: 54px;
+  padding: 0 22px;
+  border: 2px solid #eaff36;
+  border-radius: 13px;
+  background: rgba(217, 217, 217, 0.45); /* Giảm nền một chút để lớp kính đẹp hơn */
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 800;
+  backdrop-filter: blur(4px);
+  
+  /* 1. KHAI BÁO CHUYỂN ĐỘNG MƯỢT MÀ: Giúp các thuộc tính thay đổi êm ái trong 0.3 giây */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden; /* Bắt buộc phải có để giấu vệt sáng lấp lánh khi chạy ra rìa */
+  cursor: pointer;
+}
+
+/* 2. HIỆU ỨNG KHI DI CHUỘT VÀO (HOVER EFFECT) */
+.auth-feature-btn:hover {
+  transform: translateY(-4px); /* Nhấc nút cao lên 4px */
+  background: rgb(6, 29, 28); /* Làm rõ lớp kính nền hơn */
+  border-color: #d0e912; /* Đổi viền sang màu trắng phát sáng */
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3), /* Đổ bóng sâu phía dưới */
+    0 0 12px rgba(234, 255, 54, 0.4); /* Tạo quầng sáng nhẹ màu vàng neon quanh viền */
+}
+
+/* HIỆU ỨNG KHI CLICK VÀO NÚT (ACTIVE EFFECT) */
+.auth-feature-btn:active {
+  transform: translateY(-1px); /* Ấn nhẹ nút xuống tạo cảm giác cơ học vật lý */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. TẠO VỆT SÁNG LẤP LÁNH CHẠY TỰ ĐỘNG (SHINE EFFECT) */
+.auth-feature-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%; /* Đặt vệt sáng ẩn sâu ở bên trái ngoài nút */
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg); /* Làm vệt sáng nằm chéo góc cho đẹp */
+  
+  /* Cấu hình chuyển động lặp đi lặp lại vô tận */
+  animation: shineAnimation 4s infinite ease-in-out;
+}
+
+/* Định nghĩa mốc thời gian vệt sáng quét qua cho từng nút lệch nhau chút cho tự nhiên */
+.auth-feature-row .auth-feature-btn:nth-child(2)::after {
+  animation-delay: 1.2s; /* Nút Ngân hàng câu hỏi chạy sau 1.2s */
+}
+.auth-feature-center::after {
+  animation-delay: 2.4s; /* Nút Xuất đề chuẩn mẫu chạy sau 2.4s */
+}
+
+/* ĐỊNH NGHĨA KHUNG CHUYỂN ĐỘNG KEYFRAMES */
+@keyframes shineAnimation {
+  0% {
+    left: -150%;
+  }
+  15% {
+    left: 150%; /* Quét lướt nhanh từ trái qua phải trong 15% thời gian đầu */
+  }
+  100% {
+    left: 150%; /* Đứng im nghỉ ngơi ở bên ngoài trước khi lặp lại vòng mới */
+  }
 }
