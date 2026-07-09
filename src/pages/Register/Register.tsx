@@ -8,6 +8,7 @@ import {
   FiCheckCircle,
   FiXCircle,
 } from "react-icons/fi";
+import type { RegisterRequest } from "../../types/auth.type";
 import logo from "../../assets/images/logo.png";
 import "../../styles/register.css";
 
@@ -110,8 +111,8 @@ export default function Register() {
 
     if (!form.phone.trim()) {
       newErrors.phone = "Số điện thoại không được để trống";
-    } else if (!/^\d{10}$/.test(form.phone)) {
-      newErrors.phone = "Số điện thoại phải có 10 chữ số";
+    } else if (!/^0\d{9}$/.test(form.phone)) {
+      newErrors.phone = "Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0";
     }
 
     setErrors(newErrors);
@@ -144,26 +145,29 @@ export default function Register() {
   };
 
 const handleSubmit = async () => {
-
+    // 1. Kiểm tra các quy tắc mật khẩu ở Step 2
     if (!validateStepTwo()) return;
 
     try {
-      const requestBody = {
-        fullName: `${form.lastName} ${form.firstName}`.trim(), 
+      // 2. ĐÓNG GÓI JSON VỚI 2 GIÁ TRỊ TÊN ĐỘC LẬP
+      const requestBody: RegisterRequest = {
+        lastName: form.lastName.trim(),    // Đưa họ và tên đệm vào trường riêng
+        firstName: form.firstName.trim(),  // Đưa tên vào trường riêng
         email: form.email,
         password: form.password,
-        phoneNumber: form.phone, 
+        phoneNumber: form.phone,           // Map phone từ FE sang phoneNumber của BE
         
-        teachingSubject: form.subject || undefined,   
-        teachingGrade: form.grade || undefined,      
-        organizationName: form.organization || undefined, 
+        // Thêm 3 trường dropdown 
+        teachingSubject: form.subject || undefined,
+        teachingGrade: form.grade || undefined,
+        organizationName: form.organization || undefined,
       };
 
-      console.log("🚀 Request JSON gửi lên Backend:", JSON.stringify(requestBody, null, 2));
+      console.log("🚀 Request JSON (2 trường Tên riêng biệt):", JSON.stringify(requestBody, null, 2));
 
-      // const response = await axios.post("/api/auth/register", requestBody);
+      // const response = await authApi.register(requestBody);
       
-      await new Promise((resolve) => setTimeout(resolve, 1000)); 
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       
       alert("Đăng ký tài khoản giáo viên thành công!");
       navigate("/login");
@@ -208,7 +212,6 @@ const handleSubmit = async () => {
                       onChange={(event) =>
                         updateField("lastName", event.target.value)
                       }
-                      placeholder="Tăng Thị Mỹ"
                     />
 
                     {errors.lastName && (
@@ -237,7 +240,6 @@ const handleSubmit = async () => {
                       onChange={(event) =>
                         updateField("firstName", event.target.value)
                       }
-                      placeholder="Hằng"
                     />
 
                     {errors.firstName && (
@@ -268,7 +270,6 @@ const handleSubmit = async () => {
                       onChange={(event) =>
                         updateField("email", event.target.value)
                       }
-                      placeholder="tangthimyhang2005@gmail.com"
                     />
 
                     {errors.email && <FiAlertCircle className="error-icon" />}
@@ -299,7 +300,7 @@ const handleSubmit = async () => {
                         onChange={(event) =>
                           updateField("phone", event.target.value)
                         }
-                        placeholder="0703680624"
+                        placeholder="X XXX XXX XXX"
                       />
 
                       {errors.phone && (

@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 import AuthLayout from "../../layouts/AuthLayout";
+
 import logo from "../../assets/images/logo.png";
 
 import { loginSchema } from "../../utils/validation"; 
@@ -98,7 +99,7 @@ export default function Login() {
           
           <button 
             type="submit" 
-            className="login-submit" 
+            className="btn-primary-shared" 
             disabled={isSubmitting}
           >
             {isSubmitting ? "Đang xử lý..." : "Đăng nhập"}

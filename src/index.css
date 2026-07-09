@@ -1,5 +1,5 @@
-:root {
-  --font-main: "Inter", Arial, sans-serif;
+ :root {
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 
   --color-primary: #0f5f5a;
   --color-yellow: #f6f902;
@@ -18,163 +18,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.logo {
-  width: 80px;
-  height: 80px;
-}
-
-.wrapper {
-  display: flex;
-  height: 100vh;
-}
-
-/* LEFT SIDE */
-.left {
-  flex: 0.5;
-  background: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px;
-  transform: translateY(-60px);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 28px;
-
-}
 
 
 
-.badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 6px 16px;
-  border-radius: 10px;
-
-  background: #0f766e;
-  /* nền xanh đậm */
-  color: #ffff00;
-  /* chữ vàng */
-
-  font-size: 19px;
-  font-weight: 600;
-
-  border: 2px solid black;
-
-  margin-bottom: 12px;
-}
-
-.left h1 {
-  font-size: 30px;
-  margin: 0;
-
-}
-
-.black {
-  color: black;
-}
-
-.green {
-  color: #175a5a;
-}
-
-.left p {
-  margin-top: 20px;
-  max-width: 320px;
-  opacity: 0.9;
-  line-height: 1.6;
-}
-
-.content {
-  text-align: center;
-  /* QUAN TRỌNG NHẤT */
-  max-width: 420px;
-}
-
-/* RIGHT SIDE */
-.right {
-  flex: 1.5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #f5f7fb;
-  padding: 40px;
-
-}
-
-.card {
-  width: 380px;
-  background: white;
-  padding: 32px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-
-
-.input {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-}
-
-.button {
-  width: 100%;
-  padding: 12px;
-  background: #175a5a;
-  color: #f6f902;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 19px;
-  cursor: pointer;
-  border: 2px solid black;
-}
-
-.link {
-  margin-top: 15px;
-  text-align: center;
-  color: #175a5a;
-  cursor: pointer;
-}
-
-.login-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  margin: 10px 0 16px;
-  font-size: 13px;
-}
-
-.remember {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #333;
-}
-
-.forgot {
-  color: #0f766e;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.forgot:hover {
-  text-decoration: underline;
-}
-
-input[type="checkbox"] {
-  accent-color: #0f766e;
-}
 
 
 /* ===== DASHBOARD LAYOUT ===== */
@@ -394,4 +240,40 @@ input[type="checkbox"] {
   text-align: center;
   font-size: 12px;
   font-weight: 900;
+} 
+
+/* btn-shared*/
+
+.btn-primary-shared {
+  width: 376px;
+  height: 48px;
+  border: none;
+  border-radius: 15px;
+  background: #176763;
+  color: #f1ff22;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  transition: all 0.2s ease;
+}
+/* Hiệu ứng di chuột chung */
+.btn-primary-shared:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  background:rgb(14, 68, 65);
+}
+
+/* Hiệu ứng khi bấm chung */
+.btn-primary-shared:active {
+  transform: translateY(1px);
+  
+}
+
+/* Trạng thái nút bị disabled (khi đang gửi api) */
+.btn-primary-shared:disabled {
+  background: #a5b4fc;
+  cursor: not-allowed;
+  filter: none;
 }

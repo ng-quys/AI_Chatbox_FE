@@ -22,7 +22,7 @@ export type PasswordRules = {
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phoneRegex = /^\d{10}$/;
+const phoneRegex = /^0\d{9}$/;
 const fullNameRegex = /^[A-Za-zÀ-ỹ\s]+$/;
 
 export const getPasswordRules = (password: string): PasswordRules => {
@@ -64,15 +64,18 @@ export const validateRegister = (
 ): FormErrors<RegisterRequest> => {
   const errors: FormErrors<RegisterRequest> = {};
 
-  if (!form.fullName.trim()) {
-    errors.fullName = "Vui lòng nhập họ và tên";
-  } else if (
-    form.fullName.trim().length < 2 ||
-    form.fullName.trim().length > 100
-  ) {
-    errors.fullName = "Họ và tên phải từ 2 đến 100 ký tự";
-  } else if (!fullNameRegex.test(form.fullName)) {
-    errors.fullName = "Họ và tên không được chứa số hoặc ký tự đặc biệt";
+  // Validate Họ và tên đệm gửi lên BE
+  if (!form.lastName.trim()) {
+    errors.lastName = "Họ và tên đệm không được để trống";
+  } else if (!fullNameRegex.test(form.lastName)) {
+    errors.lastName = "Họ và tên đệm chỉ được chứa chữ cái";
+  }
+
+  // Validate Tên gửi lên BE
+  if (!form.firstName.trim()) {
+    errors.firstName = "Tên không được để trống";
+  } else if (!fullNameRegex.test(form.firstName)) {
+    errors.firstName = "Tên chỉ được chứa chữ cái";
   }
 
   if (!form.email.trim()) {
@@ -126,7 +129,7 @@ export const validateRegisterStepOne = (
   if (!form.phone.trim()) {
     errors.phone = "Số điện thoại không được để trống";
   } else if (!phoneRegex.test(form.phone)) {
-    errors.phone = "Số điện thoại phải có 10 chữ số";
+    errors.phone = "Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0";
   }
 
   return errors;
