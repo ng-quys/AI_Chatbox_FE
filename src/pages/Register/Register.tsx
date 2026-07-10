@@ -71,7 +71,8 @@ export default function Register() {
   });
 
   const [errors, setErrors] = useState<RegisterErrors>({});
-
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<
     "subject" | "grade" | "organization" | null
   >(null);
@@ -144,20 +145,17 @@ export default function Register() {
     }
   };
 
-const handleSubmit = async () => {
-    // 1. Kiểm tra các quy tắc mật khẩu ở Step 2
+  const handleSubmit = async () => {
     if (!validateStepTwo()) return;
 
     try {
-      // 2. ĐÓNG GÓI JSON VỚI 2 GIÁ TRỊ TÊN ĐỘC LẬP
       const requestBody: RegisterRequest = {
-        lastName: form.lastName.trim(),    // Đưa họ và tên đệm vào trường riêng
-        firstName: form.firstName.trim(),  // Đưa tên vào trường riêng
+        lastName: form.lastName.trim(),    
+        firstName: form.firstName.trim(),  
         email: form.email,
         password: form.password,
-        phoneNumber: form.phone,           // Map phone từ FE sang phoneNumber của BE
-        
-        // Thêm 3 trường dropdown 
+        phoneNumber: form.phone,           
+
         teachingSubject: form.subject || undefined,
         teachingGrade: form.grade || undefined,
         organizationName: form.organization || undefined,
@@ -166,9 +164,9 @@ const handleSubmit = async () => {
       console.log("🚀 Request JSON (2 trường Tên riêng biệt):", JSON.stringify(requestBody, null, 2));
 
       // const response = await authApi.register(requestBody);
-      
+
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       alert("Đăng ký tài khoản giáo viên thành công!");
       navigate("/login");
 
@@ -203,9 +201,8 @@ const handleSubmit = async () => {
                   </label>
 
                   <div
-                    className={`register-input ${
-                      errors.lastName ? "input-error" : ""
-                    }`}
+                    className={`register-input ${errors.lastName ? "input-error" : ""
+                      }`}
                   >
                     <input
                       value={form.lastName}
@@ -231,9 +228,8 @@ const handleSubmit = async () => {
                   </label>
 
                   <div
-                    className={`register-input ${
-                      errors.firstName ? "input-error" : ""
-                    }`}
+                    className={`register-input ${errors.firstName ? "input-error" : ""
+                      }`}
                   >
                     <input
                       value={form.firstName}
@@ -259,9 +255,8 @@ const handleSubmit = async () => {
                   </label>
 
                   <div
-                    className={`register-input has-icon ${
-                      errors.email ? "input-error" : ""
-                    }`}
+                    className={`register-input has-icon ${errors.email ? "input-error" : ""
+                      }`}
                   >
                     <FiMail className="field-icon" />
 
@@ -291,9 +286,8 @@ const handleSubmit = async () => {
                     </button>
 
                     <div
-                      className={`register-input ${
-                        errors.phone ? "input-error" : ""
-                      }`}
+                      className={`register-input ${errors.phone ? "input-error" : ""
+                        }`}
                     >
                       <input
                         value={form.phone}
@@ -448,9 +442,8 @@ const handleSubmit = async () => {
                 <label>Mật khẩu</label>
 
                 <div
-                  className={`password-input ${
-                    errors.password ? "input-error" : ""
-                  }`}
+                  className={`password-input ${errors.password ? "input-error" : ""
+                    }`}
                 >
                   <input
                     type="password"
@@ -461,7 +454,9 @@ const handleSubmit = async () => {
                     placeholder="Nhập mật khẩu"
                   />
 
-                  <FiEyeOff className="password-eye" />
+                  <span onClick={() => setShowPassword(!showPassword)} style={{ cursor: "pointer", display: "flex" }}>
+                    {showPassword ? <FiEyeOff className="password-eye" /> : <FiEyeOff style={{ transform: "rotate(180deg)" }} className="password-eye" />}
+                  </span>
                 </div>
 
                 <div className="password-rules">
@@ -484,9 +479,8 @@ const handleSubmit = async () => {
                 <label>Xác nhận mật khẩu</label>
 
                 <div
-                  className={`password-input ${
-                    errors.confirmPassword ? "input-error" : ""
-                  }`}
+                  className={`password-input ${errors.confirmPassword ? "input-error" : ""
+                    }`}
                 >
                   <input
                     type="password"
@@ -497,7 +491,9 @@ const handleSubmit = async () => {
                     placeholder="Nhập lại mật khẩu"
                   />
 
-                  <FiEyeOff className="password-eye" />
+                  <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} style={{ cursor: "pointer", display: "flex" }}>
+                    {showConfirmPassword ? <FiEyeOff className="password-eye" /> : <FiEyeOff style={{ transform: "rotate(180deg)" }} className="password-eye" />}
+                  </span>
                 </div>
 
                 {errors.confirmPassword && (

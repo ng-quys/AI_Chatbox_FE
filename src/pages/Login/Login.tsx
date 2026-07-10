@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { FiMail, FiLock, FiEyeOff } from "react-icons/fi";
+import { FiMail, FiLock, FiEyeOff, FiEye } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,12 +10,13 @@ import AuthLayout from "../../layouts/AuthLayout";
 import logo from "../../assets/images/logo.png";
 
 import { loginSchema } from "../../utils/validation"; 
+import { useState } from "react";
 
 type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export default function Login() {
   const navigate = useNavigate();
-
+const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -70,13 +71,18 @@ export default function Login() {
             <label>Mật khẩu</label>
             <div className={`input-wrapper ${errors.password ? "border-red-500" : ""}`}>
               <FiLock className="input-icon" />
+              
               <input 
-                type="password" 
+                type={showPassword ? "text" : "password"} 
                 placeholder="Password" 
                 {...register("password")} 
               />
-              <FiEyeOff className="input-eye" style={{ cursor: "pointer" }} />
+              
+              <span onClick={() => setShowPassword(!showPassword)} style={{ display: "flex", cursor: "pointer" }}>
+                {showPassword ? <FiEyeOff className="input-eye" /> : <FiEye className="input-eye" />}
+              </span>
             </div>
+            
             {errors.password && (
               <p className="validation-error-text">
                 {errors.password.message}
