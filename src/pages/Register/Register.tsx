@@ -1,13 +1,6 @@
 import { useState, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  FiMail,
-  FiChevronDown,
-  FiAlertCircle,
-  FiEyeOff,
-  FiCheckCircle,
-  FiXCircle,
-} from "react-icons/fi";
+import {FiMail,FiChevronDown,FiAlertCircle,FiEyeOff,FiCheckCircle,FiXCircle,FiEye} from "react-icons/fi";
 import type { RegisterRequest } from "../../types/auth.type";
 import logo from "../../assets/images/logo.png";
 import "../../styles/register.css";
@@ -112,8 +105,8 @@ export default function Register() {
 
     if (!form.phone.trim()) {
       newErrors.phone = "Số điện thoại không được để trống";
-    } else if (!/^0\d{9}$/.test(form.phone)) {
-      newErrors.phone = "Số điện thoại phải gồm 10 chữ số và bắt đầu bằng số 0";
+    } else if (!/^\d{9}$/.test(form.phone)) {
+      newErrors.phone = "Số điện thoại phải gồm 9 chữ số";
     }
 
     setErrors(newErrors);
@@ -153,17 +146,23 @@ export default function Register() {
       setStep(2);
     }
   };
-
-  const handleSubmit = async () => {
+  const [orgSearch, setOrgSearch] = useState("");
+ const handleSubmit = async () => {
     if (!validateStepTwo()) return;
 
     try {
+      let finalPhoneNumber = form.phone.trim();
+      if (finalPhoneNumber.length === 9 && !finalPhoneNumber.startsWith("0")) {
+        finalPhoneNumber = "0" + finalPhoneNumber;
+      }
+
       const requestBody: RegisterRequest = {
         lastName: form.lastName.trim(),    
         firstName: form.firstName.trim(),  
         email: form.email,
         password: form.password,
-        phoneNumber: form.phone,           
+        
+        phoneNumber: finalPhoneNumber,           
 
         teachingSubject: form.subject || undefined,
         teachingGrade: form.grade || undefined,
@@ -173,7 +172,6 @@ export default function Register() {
       console.log("🚀 Request JSON (2 trường Tên riêng biệt):", JSON.stringify(requestBody, null, 2));
 
       // const response = await authApi.register(requestBody);
-
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       alert("Đăng ký tài khoản giáo viên thành công!");
@@ -303,7 +301,7 @@ export default function Register() {
                         onChange={(event) =>
                           updateField("phone", event.target.value)
                         }
-                        placeholder="X XXX XXX XXX"
+                        placeholder=" XXX XXX XXX"
                       />
 
                       {errors.phone && (
@@ -389,8 +387,7 @@ export default function Register() {
               <div className="register-field organization-field dropdown-field">
                 <label>Đơn vị quản lý</label>
 
-                <button
-                  type="button"
+                <div
                   className="register-select"
                   style={{
                     display: "flex",
@@ -399,29 +396,69 @@ export default function Register() {
                     position: "relative",
                   }}
                 >
-                  <span>{form.organization}</span>
-                  <FiChevronDown />
-                </button>
+                  <input
+                    type="text"
+                    value={openDropdown === "organization" ? orgSearch : form.organization}
+                    onChange={(event) => {
+                      const val = event.target.value;
+                      setOrgSearch(val);
+                      updateField("organization", val);
+                      setOpenDropdown("organization");
+                    }}
+                    onFocus={() => {
+                      setOpenDropdown("organization");
+                      setOrgSearch(form.organization);
+                    }}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      border: "none",
+                      outline: "none",
+                      background: "transparent",
+                      padding: "0 14px",
+                      fontSize: "18px",
+                      color: "#111111",
+                    }}
+                  />
+
+                  <FiChevronDown
+                    style={{ marginRight: "14px", cursor: "pointer", fontSize: "20px", flexShrink: 0 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setOpenDropdown(openDropdown === "organization" ? null : "organization");
+                      setOrgSearch(form.organization);
+                    }}
+                  />
+                </div>
 
                 {openDropdown === "organization" && (
                   <div className="dropdown-menu organization-menu">
-                    {organizations.map((organization) => (
-                      <button
-                        key={organization}
-                        type="button"
-                        className={
-                          form.organization === organization
-                            ? "selected-option"
-                            : ""
-                        }
-                        onClick={() => {
-                          updateField("organization", organization);
-                          setOpenDropdown(null);
-                        }}
-                      >
-                        {organization}
-                      </button>
-                    ))}
+                    {organizations
+                      .filter((org) =>
+                        org.toLowerCase().includes(orgSearch.toLowerCase())
+                      )
+                      .map((organization) => (
+                        <button
+                          key={organization}
+                          type="button"
+                          className={
+                            form.organization === organization
+                              ? "selected-option"
+                              : ""
+                          }
+                          onClick={() => {
+                            updateField("organization", organization);
+                            setOrgSearch(organization);
+                            setOpenDropdown(null);
+                          }}
+                        >
+                          {organization}
+                        </button>
+                      ))}
+
+                    {organizations.filter((org) =>
+                      org.toLowerCase().includes(orgSearch.toLowerCase())
+                    ).length === 0}
                   </div>
                 )}
               </div>
@@ -457,7 +494,7 @@ export default function Register() {
                     }`}
                 >
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={form.password}
                     onChange={(event) =>
                       updateField("password", event.target.value)
@@ -465,8 +502,15 @@ export default function Register() {
                     placeholder="Nhập mật khẩu"
                   />
 
-                  <span onClick={() => setShowPassword(!showPassword)} style={{ cursor: "pointer", display: "flex" }}>
-                    {showPassword ? <FiEyeOff className="password-eye" /> : <FiEyeOff style={{ transform: "rotate(180deg)" }} className="password-eye" />}
+                <span 
+                    onClick={() => setShowPassword(!showPassword)} 
+                    style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+                  >
+                    {showPassword ? (
+                      <FiEyeOff className="password-eye" />
+                    ) : (
+                      <FiEye className="password-eye" />
+                    )}
                   </span>
                 </div>
 
@@ -494,7 +538,7 @@ export default function Register() {
                     }`}
                 >
                   <input
-                    type="password"
+                    type={showConfirmPassword ? "text" : "password"}
                     value={form.confirmPassword}
                     onChange={(event) =>
                       updateField("confirmPassword", event.target.value)
@@ -502,8 +546,11 @@ export default function Register() {
                     placeholder="Nhập lại mật khẩu"
                   />
 
-                  <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} style={{ cursor: "pointer", display: "flex" }}>
-                    {showConfirmPassword ? <FiEyeOff className="password-eye" /> : <FiEyeOff style={{ transform: "rotate(180deg)" }} className="password-eye" />}
+                  <span
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    style={{ cursor: "pointer", display: "flex", alignItems: "center" }}
+                  >
+                    {showConfirmPassword ? <FiEyeOff className="password-eye" /> : <FiEye className="password-eye" />}
                   </span>
                 </div>
 
@@ -511,6 +558,8 @@ export default function Register() {
                   <p className="password-error">{errors.confirmPassword}</p>
                 )}
               </div>
+
+
 
               <button
                 type="button"

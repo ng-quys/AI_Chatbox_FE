@@ -22,7 +22,7 @@ export type PasswordRules = {
 };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phoneRegex = /^0\d{9}$/;
+const phoneRegex = /d9}$/;
 const fullNameRegex = /^[A-Za-zÀ-ỹ\s]+$/;
 
 export const getPasswordRules = (password: string): PasswordRules => {
@@ -93,7 +93,7 @@ export const validateRegister = (
   if (!form.phoneNumber.trim()) {
     errors.phoneNumber = "Vui lòng nhập số điện thoại";
   } else if (!phoneRegex.test(form.phoneNumber)) {
-    errors.phoneNumber = "Số điện thoại phải gồm đúng 10 chữ số";
+    errors.phoneNumber = "Số điện thoại phải gồm đúng 9 chữ số";
   }
 
   if (form.organizationName && form.organizationName.trim().length > 100) {
@@ -187,5 +187,5 @@ export const forgotStepThreeSchema = yup.object({
   confirmPassword: yup
     .string()
     .required("Vui lòng xác nhận mật khẩu")
-    .oneOf([yup.ref("password")], "Mật khẩu xác nhận không khớp"), // Tự động check khớp[cite: 10, 12]
+    .oneOf([yup.ref("password")], "Mật khẩu xác nhận không khớp"), 
 }).required();

@@ -1,6 +1,6 @@
-import { useRef, useState, type ChangeEvent } from "react";
+import { useRef, useState  } from "react";
 import { Link } from "react-router-dom";
-import { FiEyeOff, FiCheckCircle, FiXCircle } from "react-icons/fi";
+import { FiEyeOff, FiEye, FiCheckCircle, FiXCircle } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -13,8 +13,12 @@ type ForgotStep = 1 | 2 | 3;
 
 export default function ForgotPassword() {
   const [step, setStep] = useState<ForgotStep>(1);
-  const [savedEmail, setSavedEmail] = useState(""); // Lưu lại email sau step 1 để hiển thị ở step 2
+  const [savedEmail, setSavedEmail] = useState(""); 
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const isDeleting = useRef(false);
+  // State quản lý ẩn/hiện mật khẩu động ở Bước 3
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const otpRefs = useRef<Array<HTMLInputElement | null>>([]);
 
@@ -32,7 +36,7 @@ export default function ForgotPassword() {
 
   const onStep1Submit = (data: { email: string }) => {
     setSavedEmail(data.email);
-    setStep(2); // Thỏa mãn validation -> Sang bước nhập OTP
+    setStep(2); 
   };
 
   // ==========================================
@@ -44,36 +48,82 @@ export default function ForgotPassword() {
     formState: { errors: errorsStep2 },
     setError: setOtpCustomError,
     clearErrors: clearOtpErrors,
+    getValues: getOtpValues,
   } = useForm({
     resolver: yupResolver(forgotStepTwoSchema),
     defaultValues: { otp: "" },
   });
 
-  // Xử lý sự kiện gõ từng ô OTP độc lập và tự động nhảy con trỏ
-  const handleOtpChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value.replace(/\D/g, "").slice(0, 1);
+  const handleOtpChange = (index: number, value: string) => {
+    // Nếu đang trong quá trình xóa (bấm Backspace), chặn đứng không cho ghi đè ngược số cũ
+    if (isDeleting.current) {
+      isDeleting.current = false;
+      return;
+    }
+
+    // Chỉ lấy đúng 1 ký tự số cuối cùng vừa được nhập vào (hỗ trợ gõ đè)
+    const sanitizedValue = value.substring(value.length - 1).replace(/\D/g, "");
+    
     const nextOtp = [...otp];
-    nextOtp[index] = value;
+    nextOtp[index] = sanitizedValue;
     setOtp(nextOtp);
     clearOtpErrors("otp");
 
-    // Gộp mảng 6 ký tự thành chuỗi rồi cập nhật vào giá trị form của react-hook-form
-    const fullOtpString = nextOtp.join("");
-    setOtpValue("otp", fullOtpString, { shouldValidate: true });
+    // Đồng bộ giá trị gộp lại cho react-hook-form
+    setOtpValue("otp", nextOtp.join(""), { shouldValidate: true });
 
-    // Tự động chuyển focus sang ô tiếp theo
-    if (value && index < 5) {
+    // Nếu vừa gõ xong một số, tự động nhảy con trỏ sang ô tiếp theo bên phải
+    if (sanitizedValue && index < 5) {
       otpRefs.current[index + 1]?.focus();
     }
   };
 
+  const handleKeyDown = (index: number, event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Backspace") {
+      isDeleting.current = true; 
+      const nextOtp = [...otp];
+
+      if (!otp[index] && index > 0) {
+        nextOtp[index - 1] = "";
+        setOtp(nextOtp);
+        setOtpValue("otp", nextOtp.join(""), { shouldValidate: true });
+        otpRefs.current[index - 1]?.focus();
+        event.preventDefault();
+      } else {
+        nextOtp[index] = "";
+        setOtp(nextOtp);
+        setOtpValue("otp", nextOtp.join(""), { shouldValidate: true });
+        event.preventDefault();
+      }
+    } 
+    
+    else if (event.key === "ArrowLeft") {
+      if (index > 0) {
+        otpRefs.current[index - 1]?.focus();
+        event.preventDefault(); 
+      }
+    } 
+    
+    else if (event.key === "ArrowRight") {
+      if (index < 5) {
+        otpRefs.current[index + 1]?.focus();
+        event.preventDefault(); 
+      }
+    } 
+    
+    else {
+      isDeleting.current = false;
+    }
+  };
+
+
+
   const onStep2Submit = (data: { otp: string }) => {
-    // Giả lập check mã OTP đúng chuẩn hệ thống (Ví dụ: 123456)
     if (data.otp !== "123456") {
       setOtpCustomError("otp", { message: "Mã OTP không đúng, vui lòng nhập lại" });
       return;
     }
-    setStep(3); // Khớp mã -> Chuyển sang bước đổi mật khẩu
+    setStep(3); 
   };
 
   // ==========================================
@@ -89,10 +139,8 @@ export default function ForgotPassword() {
     defaultValues: { password: "", confirmPassword: "" },
   });
 
-  // 1. Tạo một state thuần để lưu mật khẩu (Bỏ hẳn hàm watch của thư viện để React Compiler không bắt bẻ)
   const [localPassword, setLocalPassword] = useState("");
 
-  // 2. Tính toán trực tiếp các rule dựa trên State thuần này
   const passwordRules = {
     length: localPassword.length >= 8,
     upper: /[A-Z]/.test(localPassword),
@@ -105,7 +153,6 @@ export default function ForgotPassword() {
       email: savedEmail,
       password: data.password,
     });
-    // Xử lý gọi API cập nhật lại mật khẩu ở đây
   };
 
   return (
@@ -116,7 +163,6 @@ export default function ForgotPassword() {
         <div className="forgot-card-body">
           <img src={logo} alt="ETECHS" className="forgot-logo" />
 
-          {/* STEP 1: FORM NHẬP EMAIL */}
           {step === 1 && (
             <form onSubmit={handleSubmitStep1(onStep1Submit)} noValidate>
               <h1 className="forgot-title">Quên mật khẩu?</h1>
@@ -140,11 +186,10 @@ export default function ForgotPassword() {
               <p className="forgot-login-text">
                 Bạn đã có tài khoản? <Link to="/login">Đăng nhập</Link>
               </p>
-              <StepIndicator activeStep={1} />
+              <StepIndicator activeStep={1} setStep={setStep} savedEmail={savedEmail} currentOtp={getOtpValues("otp")} />
             </form>
           )}
 
-          {/* STEP 2: FORM XÁC THỰC MÃ OTP */}
           {step === 2 && (
             <form onSubmit={handleSubmitStep2(onStep2Submit)} noValidate>
               <h1 className="forgot-title otp-title">Mã OTP</h1>
@@ -153,14 +198,15 @@ export default function ForgotPassword() {
               </p>
 
               <div className="otp-row">
-                {otp.map((value, index) => (
+                {otp.map((_, index) => (
                   <input
                     key={index}
                     ref={(element) => { otpRefs.current[index] = element; }}
                     className={errorsStep2.otp ? "otp-input otp-error" : "otp-input"}
-                    value={value}
-                    onChange={(event) => handleOtpChange(index, event)}
-                    maxLength={1}
+                    value={otp[index]} 
+                    onChange={(event) => handleOtpChange(index, event.target.value)}
+                    onKeyDown={(event) => handleKeyDown(index, event)}
+                    maxLength={2} 
                     inputMode="numeric"
                   />
                 ))}
@@ -170,11 +216,10 @@ export default function ForgotPassword() {
 
               <p className="resend-text"><strong>Gửi lại mã</strong> sau 00:30</p>
               <button type="submit" className="forgot-submit">Xác thực OTP</button>
-              <StepIndicator activeStep={2} />
+              <StepIndicator activeStep={2} setStep={setStep} savedEmail={savedEmail} currentOtp={getOtpValues("otp")} />
             </form>
           )}
 
-          {/* STEP 3: FORM ĐẶT LẠI MẬT KHẨU MỚI */}
           {step === 3 && (
             <form onSubmit={handleSubmitStep3(onStep3Submit)} noValidate>
               <h1 className="forgot-title reset-title">Đặt lại mật khẩu</h1>
@@ -184,16 +229,19 @@ export default function ForgotPassword() {
                 <label>Mật khẩu mới</label>
                 <div className={`reset-input ${errorsStep3.password ? "input-error" : ""}`}>
                   <input
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     placeholder="Nhập mật khẩu mới"
-                    {...registerStep3("password")}
+                    {...registerStep3("password", {
+                      onChange: (e) => setLocalPassword(e.target.value)
+                    })}
                   />
-                  <FiEyeOff className="reset-eye" />
+                  <span onClick={() => setShowPassword(!showPassword)} style={{ display: "flex", cursor: "pointer" }}>
+                    {showPassword ? <FiEye className="reset-eye" /> : <FiEyeOff className="reset-eye" />}
+                  </span>
                 </div>
                 {errorsStep3.password && <p className="forgot-error" style={{ marginTop: '8px' }}>{errorsStep3.password.message}</p>}
               </div>
 
-              {/* Các dòng hiển thị rule đáp ứng ký tự */}
               <div className="reset-rules">
                 <PasswordRule checked={passwordRules.length}>Mật khẩu phải có ít nhất 8 ký tự.</PasswordRule>
                 <PasswordRule checked={passwordRules.upper}>Mật khẩu phải có ít nhất 1 chữ cái in hoa.</PasswordRule>
@@ -205,13 +253,13 @@ export default function ForgotPassword() {
                 <label>Xác nhận mật khẩu</label>
                 <div className={`reset-input ${errorsStep3.confirmPassword ? "input-error" : ""}`}>
                   <input
-                    type="password"
-                    placeholder="Nhập mật khẩu mới"
-                    {...registerStep3("password", {
-                      onChange: (e) => setLocalPassword(e.target.value) // Cập nhật chữ gõ vào state thuần
-                    })}
+                    type={showConfirmPassword ? "text" : "password"}
+                    placeholder="Nhập lại mật khẩu mới"
+                    {...registerStep3("confirmPassword")} // FIX LỖI: Đổi từ "password" thành "confirmPassword" chuẩn chỉ
                   />
-                  <FiEyeOff className="reset-eye" />
+                  <span onClick={() => setShowConfirmPassword(!showConfirmPassword)} style={{ display: "flex", cursor: "pointer" }}>
+                    {showConfirmPassword ? <FiEye className="reset-eye" /> : <FiEyeOff className="reset-eye" />}
+                  </span>
                 </div>
                 {errorsStep3.confirmPassword && (
                   <p className="forgot-error confirm-error">{errorsStep3.confirmPassword.message}</p>
@@ -219,7 +267,7 @@ export default function ForgotPassword() {
               </div>
 
               <button type="submit" className="forgot-submit reset-submit">Thay đổi mật khẩu</button>
-              <StepIndicator activeStep={3} />
+              <StepIndicator activeStep={3} setStep={setStep} savedEmail={savedEmail} currentOtp={getOtpValues("otp")} />
             </form>
           )}
         </div>
@@ -228,12 +276,55 @@ export default function ForgotPassword() {
   );
 }
 
-function StepIndicator({ activeStep }: { activeStep: 1 | 2 | 3 }) {
+// ==========================================
+// THÀNH PHẦN THANH TIẾN TRÌNH THÔNG MINH 
+// ==========================================
+interface StepIndicatorProps {
+  activeStep: ForgotStep;
+  setStep: (step: ForgotStep) => void;
+  savedEmail: string;
+  currentOtp: string;
+}
+
+function StepIndicator({ activeStep, setStep, savedEmail, currentOtp }: StepIndicatorProps) {
+  const handleDotClick = (targetStep: ForgotStep) => {
+    if (targetStep < activeStep) {
+      setStep(targetStep);
+      return;
+    }
+
+    if (targetStep === 2 && savedEmail.trim() !== "") {
+      setStep(2);
+      return;
+    }
+
+    if (targetStep === 3 && savedEmail.trim() !== "" && currentOtp === "123456") {
+      setStep(3);
+      return;
+    }
+  };
+
   return (
     <div className="forgot-step-indicator">
-      <span className={activeStep === 1 ? "step-dot active" : "step-dot"} />
-      <span className={activeStep === 2 ? "step-dot active" : "step-dot"} />
-      <span className={activeStep === 3 ? "step-dot active" : "step-dot"} />
+      {[1, 2, 3].map((s) => {
+        const isClickable =
+          s < activeStep || 
+          (s === 2 && savedEmail.trim() !== "") || 
+          (s === 3 && savedEmail.trim() !== "" && currentOtp === "123456");
+
+        return (
+          <span
+            key={s}
+            className={`step-dot ${activeStep === s ? "active" : ""} ${isClickable ? "clickable" : ""}`}
+            onClick={() => handleDotClick(s as ForgotStep)}
+            style={{
+              cursor: isClickable ? "pointer" : "not-allowed",
+              opacity: isClickable || activeStep === s ? 1 : 0.4,
+              transition: "all 0.2s ease"
+            }}
+          />
+        );
+      })}
     </div>
   );
 }

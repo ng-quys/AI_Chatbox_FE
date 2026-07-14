@@ -1,0 +1,1785 @@
+[
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây nêu đúng đoạn mã HTML dùng để chèn ảnh từ tệp anhtotnghiep.jpg với chiều rộng và chiều cao tương ứng là 800 và 300 pixel vào một trang web, biết rằng tệp ảnh nằm trong cùng thư mục với tệp HTML?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<img href=\"anhtotnghiep\" width=\"800\" height=\"300\">"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<img src=\"anhtotnghiep\" width=\"800px\" height=\"300px\">"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<img src=\"anhtotnghiep.jpg\" width=\"800\" height=\"300\">"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<img href=\"anhtotnghiep.jpg\" width=\"800px\" height=\"300px\">"
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["C"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Việc chia sẻ một thư mục trên máy tính với quyền đọc cho một hoặc một nhóm người dùng trên các máy tính khác trong cùng mạng LAN có các thao tác sau:"
+      },
+      {
+        "type": "text",
+        "value": "(1) Thiết lập quyền đọc cho người dùng."
+      },
+      {
+        "type": "text",
+        "value": "(2) Tìm và chọn thư mục cần chia sẻ trên máy tính."
+      },
+      {
+        "type": "text",
+        "value": "(3) Mở ứng dụng quản lí tệp."
+      },
+      {
+        "type": "text",
+        "value": "(4) Chọn tên một hoặc nhóm người dùng cần được chia sẻ."
+      },
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây nêu đúng thứ tự thực hiện các thao tác trên?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "(3), (2), (4), (1)."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "(3), (1), (2), (4)."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "(1), (2), (3), (4)."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "(1), (4), (2), (3)."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["A"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây liệt kê đơn vị đo dung lượng bộ nhớ theo thứ tự tăng dần?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Terabyte, Megabyte, Gigabyte."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Megabyte, Gigabyte, Terabyte."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Megabyte, Terabyte, Gigabyte."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Gigabyte, Megabyte, Terabyte."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Lựa chọn ngôn ngữ lập trình Python hoặc C++ để tìm hiểu đoạn chương trình sau:"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            {
+              "type": "code",
+              "language": "python",
+              "value": "n = 1\nwhile n % a != 0 or n % b != 0:\n    n = n + 1"
+            },
+            {
+              "type": "code",
+              "language": "c++",
+              "value": "int n = 1;\nwhile (n % a != 0 || n % b != 0)\n    n = n + 1;"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "value": "Giả sử a và b là hai số nguyên dương khác nhau, sau khi thực hiện đoạn chương trình trên, n là số nguyên dương thỏa mãn tính chất nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Nhỏ nhất và chia hết cho cả a và b."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Lớn nhất và là ước số của a hoặc b."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Lớn nhất và là ước số của cả a và b."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Nhỏ nhất và chia hết cho a hoặc b."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["A"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Chị B nhận được cuộc điện thoại từ một người xưng là nhân viên hải quan. Người này thông báo có một món quà giá trị cao được gửi cho chị từ nước ngoài, đồng thời yêu cầu chị nộp thuế bằng cách chuyển ngay cho hải quan theo số tài khoản được cung cấp để nhận món quà đó. Để ứng xử an toàn trong tình huống này, chị B không nên thực hiện hành động nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Chia sẻ thông tin về cuộc gọi và xin tư vấn từ người thân."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Thanh toán thuế theo yêu cầu mà không xác minh thông tin."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Chất vấn người gọi một cách thận trọng về món quà tặng."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Liên lạc trực tiếp với cơ quan hải quan để xác minh thông tin."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Lựa chọn ngôn ngữ lập trình Python hoặc C++ để tìm hiểu đoạn chương trình sau:"
+      },
+      {
+        "type": "table",
+        "value": [
+          [
+            {
+              "type": "code",
+              "language": "python",
+              "value": "x, a, b = 1, 2, 6\nfor i in range(a, b):\n    if (x < i):\n        x = x * i\n    else:\n        x = x // i\nprint(x)"
+            },
+            {
+              "type": "code",
+              "language": "c++",
+              "value": "int x = 1, a = 2, b = 6;\nfor (int i = a; i < b; i++) {\n    if (x < i)\n        x = x * i;\n    else\n        x = x / i;\n}\ncout << x;"
+            }
+          ]
+        ]
+      },
+      {
+        "type": "text",
+        "value": "Sau khi thực hiện đoạn chương trình trên, giá trị nào sau đây được hiển thị trên màn hình?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "6."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "2."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "5."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "1."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["C"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây mô tả đặc trưng của Trí tuệ nhân tạo tạo sinh?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Xác thực danh tính người dùng thông qua sinh trắc học."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Phân tích dữ liệu để đưa ra dự đoán hoặc phân loại đối tượng."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tìm kiếm và trả về thông tin có sẵn từ cơ sở dữ liệu lớn."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tạo ra các nội dung mới như văn bản, hình ảnh, mã nguồn."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    }
+  },
+  {
+  "questionType": "single_choice",
+  "difficulty": "medium",
+  "content": [
+    {
+      "type": "text",
+      "value": "Lựa chọn ngôn ngữ lập trình Python hoặc C++ để tìm hiểu đoạn chương trình sau:"
+    },
+    {
+      "type": "table",
+      "value": [
+        [
+          {
+            "type": "code",
+            "language": "python",
+            "value": "L = [4, 6, 2]\nn, T = 3, 0\n\nfor i in range(0, n):\n    k = 1\n    for j in range(0, i + 1):\n        T = T + k * L[j]\n        k = -1 * k"
+          },
+          {
+            "type": "code",
+            "language": "c++",
+            "value": "int n = 3, T = 0, L[] = {4, 6, 2};\n\nfor (int i = 0; i < n; i++) {\n    int k = 1;\n    for (int j = 0; j < i + 1; j++) {\n        T = T + k * L[j];\n        k = -1 * k;\n    }\n}"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Sau khi thực hiện đoạn chương trình trên, biến T có giá trị nào sau đây?"
+    }
+  ],
+  "options": [
+    {
+      "id": "A",
+      "content": [
+        {
+          "type": "text",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "content": [
+        {
+          "type": "text",
+          "value": "-2"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "content": [
+        {
+          "type": "text",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "content": [
+        {
+          "type": "text",
+          "value": "-4"
+        }
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "value": [
+      "C"
+    ]
+  },
+  "explanation": [
+    {
+      "type": "text",
+      "value": "Các lần lặp cho giá trị cộng vào T lần lượt là: i=0: 4; i=1: 4-6=-2; i=2: 4-6+2=0. Tổng cuối cùng: 4 + (-2) + 0 = 2."
+    }
+  ]
+},
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Cho các bộ chọn CSS sau:"
+      },
+      {
+        "type": "code",
+        "language": "css",
+        "value": ".dong {\n    font-size: 30px;\n    color: green;\n    border-style: dotted;\n}\n\n#doan {\n    font-size: 30px;\n    color: green;\n    border-style: solid;\n}"
+      },
+      {
+        "type": "text",
+        "value": "Đoạn mã HTML nào sau đây áp dụng một bộ chọn CSS trên để định dạng dòng chữ \"Chúc em thi tốt!\" với cỡ chữ 30 pixel, màu xanh lá cây và đường viền nét liền bao quanh?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<p class=\"doan\">Chúc em thi tốt!</p>"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<p id=\"doan\">Chúc em thi tốt!</p>"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<p class=\"dong\">Chúc em thi tốt!</p>"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<p id=\"dong\">Chúc em thi tốt!</p>"
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Nếu thấy bài đăng trên mạng xã hội kêu gọi cộng đồng quyên góp để ủng hộ một hoàn cảnh khó khăn, hành động nào sau đây vừa đảm bảo an toàn vừa có tính nhân văn?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Lập tức chia sẻ bài đăng lên trang cá nhân."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tìm hiểu kĩ nguồn tin trước khi quyên góp."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Xem qua và không quan tâm bài đăng."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Bình luận không ủng hộ người đăng tin."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Cho đoạn mã HTML và CSS sau:"
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "value": "<head>\n<style>\ntable {border: 1px solid red;}\n</style>\n</head>\n<body>\n<table>\n<tr><td>Sản phẩm</td><td>Đơn giá (VNĐ)</td></tr>\n<tr><td>Máy tính xách tay</td><td>7 000 000</td></tr>\n</table>\n</body>"
+      },
+      {
+        "type": "text",
+        "value": "Bảng được tạo bởi đoạn mã trên có đặc điểm nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Viền của các ô có màu đỏ."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Viền của bảng có màu đỏ."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Viền của bảng và ô đều có màu đỏ."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Viền của dòng tiêu đề có màu đỏ."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Bảng dữ liệu lưu trữ thông tin nhập hàng của một cửa hàng có các cột sau: Mã hóa đơn, Mã hàng, Ngày nhập, Số lượng, Giá nhập. Cần cập nhật dữ liệu cho bảng này trong trường hợp nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Bổ sung các mặt hàng được nhập vào ngày 20/11/2025."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Thống kê số lượng mã hàng được nhập trước ngày 20/11/2025."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tính và đưa ra giá nhập trung bình của các mặt hàng."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tìm các mặt hàng có giá nhập bằng một giá trị cho trước."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["A"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Ứng dụng nào sau đây là một Chatbot có sử dụng Trí tuệ nhân tạo?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Gemini."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Calculator."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Unikey."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Notepad."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["A"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Lĩnh vực nào sau đây có nhiệm vụ giúp máy tính hiểu và xử lí được ngôn ngữ tự nhiên của con người?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Học máy."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Thị giác máy tính."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Điều khiển rô-bốt."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Xử lí ngôn ngữ tự nhiên."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Giao thức TCP không có vai trò nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Quy định việc phân chia và đánh số thứ tự các gói tin."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Quy định cách thức định tuyến cho gói tin khi truyền."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Đảm bảo dữ liệu được truyền tải tin cậy và chính xác."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Cung cấp cơ chế phát hiện và xử lí sai sót khi truyền dữ liệu."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây chỉ ra ưu điểm của giao tiếp trên không gian mạng?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Không phụ thuộc vào thiết bị công nghệ."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Đảm bảo tin cậy và bảo mật thông tin tuyệt đối."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Luôn quan sát được thái độ của người nói."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tạo cơ hội mở rộng các mối quan hệ xã hội."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Tiêu đề của một trang web được khai báo bởi phần tử HTML nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<title>"
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<title>"
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<h1>"
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "code",
+            "language": "html",
+            "value": "<head>"
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Nhận định nào sau đây đúng khi nói về tác động của Trí tuệ nhân tạo (AI) đối với thị trường lao động?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "AI quyết định độ tuổi lao động của con người."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "AI thúc đẩy tự động hóa các công việc có tính lặp lại."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Các công việc đòi hỏi sự thấu hiểu cảm xúc bị AI thay thế."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Lao động phổ thông bị AI thay thế hoàn toàn."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Cho đoạn mã HTML sau:"
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "value": "<ol start=\"5\">\n<li>Khoa học máy tính</li>\n<li>Tin học ứng dụng</li>\n</ol>"
+      },
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây mô tả đúng cách đánh thứ tự của danh sách được tạo bởi đoạn mã trên?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Kiểu số nguyên bắt đầu từ 5."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Kiểu số La Mã in thường, bắt đầu từ V."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Kiểu số La Mã in hoa, bắt đầu từ V."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Kiểu chữ cái in hoa, bắt đầu từ E."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["B"]
+    }
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây chỉ ra một thao tác khai thác cơ sở dữ liệu?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Thêm mới."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Chỉnh sửa."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Xóa bỏ."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tìm kiếm."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Tìm kiếm là thao tác khai thác dữ liệu. Thêm, sửa, xóa là các thao tác cập nhật dữ liệu."
+      }
+    ]
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Người quản trị cơ sở dữ liệu cần làm công việc nào sau đây để xác định quyền truy cập đối với từng nhóm người dùng khác nhau?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Điều chỉnh cấu trúc cơ sở dữ liệu."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Tìm kiếm dữ liệu theo yêu cầu."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Phân quyền truy cập dữ liệu."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Sao lưu dự phòng dữ liệu."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["C"]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Để xác định quyền truy cập cho từng nhóm người dùng, người quản trị phải thực hiện phân quyền truy cập dữ liệu."
+      }
+    ]
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Người làm nghề lập trình nhất thiết phải có khả năng nào sau đây?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Phân tích số liệu thống kê."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Bảo trì mạng máy tính."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Bảo trì cơ sở dữ liệu."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Thiết kế và cài đặt thuật toán."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Thiết kế và cài đặt thuật toán là năng lực cốt lõi của người làm nghề lập trình."
+      }
+    ]
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Nghề nào sau đây thuộc nhóm nghề dịch vụ trong ngành Công nghệ thông tin?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Quản trị cơ sở dữ liệu."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Bảo mật hệ thống thông tin."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Quản trị mạng máy tính."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Sửa chữa và bảo trì máy tính."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Sửa chữa và bảo trì máy tính thuộc nhóm nghề dịch vụ trong lĩnh vực Công nghệ thông tin."
+      }
+    ]
+  },
+  {
+    "questionType": "single_choice",
+    "difficulty": "easy",
+    "content": [
+      {
+        "type": "text",
+        "value": "Phương án nào sau đây nêu đúng công việc chính của người làm nghề sửa chữa và bảo trì máy tính?"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Quản lí và duy trì một hệ thống thông tin."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Xây dựng, phát triển hệ thống mạng máy tính."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Cải thiện hiệu suất hoạt động hệ thống mạng."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Lắp đặt, sửa chữa phần cứng máy tính."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": ["D"]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Công việc chính của nghề sửa chữa và bảo trì máy tính là lắp đặt, kiểm tra và sửa chữa phần cứng máy tính."
+      }
+    ]
+  },
+  {
+  "questionType": "true_false",
+  "difficulty": "medium",
+  "content": [
+    {
+      "type": "text",
+      "value": "Một nhóm sinh viên của trường đại học A được cử đến một xã miền núi để thực hiện các hoạt động thiện nguyện. Xã này đã được trang bị đầy đủ hệ thống cáp quang và hạ tầng kết nối Internet. Trước ngày lên đường, Ban giám hiệu giao cho trưởng nhóm hai nhiệm vụ về hoạt động của nhóm: (1) gửi báo cáo vào cuối mỗi ngày đến địa chỉ email baocao@dha.edu.vn; (2) ba ngày một lần, đăng các bài viết vào mục được phân công trên website của trường tại địa chỉ https://dha.edu.vn. Khi tìm hiểu tình huống trên, có những nhận định sau:"
+    }
+  ],
+  "options": [
+    {
+      "id": "A",
+      "content": [
+        {
+          "type": "text",
+          "value": "https trong địa chỉ website https://dha.edu.vn là giao thức gửi thư điện tử."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "content": [
+        {
+          "type": "text",
+          "value": "Tên miền website của trường đại học A trong địa chỉ trên là một địa chỉ thay thế cho địa chỉ IP của máy chủ web."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "content": [
+        {
+          "type": "text",
+          "value": "Trong trường hợp máy chủ web của trường đại học A thay đổi địa chỉ IP, trưởng nhóm vẫn có thể đăng bài viết thành công lên website của trường."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "content": [
+        {
+          "type": "text",
+          "value": "Trong trường hợp nơi cư trú của nhóm chỉ được trang bị hạ tầng kết nối Internet có dây, nếu trưởng nhóm muốn sử dụng máy tính xách tay để gửi báo cáo và đăng bài lên website thông qua mạng Wi-Fi thì cần lắp đặt thêm Access Point."
+        }
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "value": [
+      false,
+      true,
+      true,
+      true
+    ]
+  }
+},
+{
+    "questionType": "true_false",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Câu lạc bộ Thiết kế đồ họa của một trường trung học phổ thông muốn xây dựng một trang web để quảng bá hoạt động, trong đó có biểu mẫu cho các bạn học sinh đăng kí tham gia. Biểu mẫu được tạo bởi đoạn mã HTML sau:"
+      },
+      {
+        "type": "code",
+        "language": "html",
+        "value": "<form action=\"dangki.php\">\n<h3>Đăng kí thành viên Câu lạc bộ Thiết kế đồ họa</h3>\nHọ tên: <input type=\"text\" name=\"ten\"><br>\nBan muốn đăng kí:<br>\n<input type=\"radio\" name=\"optban\" value=\"thietke\"> Ban thiết kế\n<input type=\"radio\" name=\"optban\" value=\"truyenthong\"> Ban truyền thông <br>\n<input type=\"submit\" name=\"gui\" value=\"Gửi\">\n</form>"
+      },
+      {
+        "type": "text",
+        "value": "Có một số ý kiến về đoạn mã HTML trên như sau:"
+      }
+    ],
+    "options": [
+      {
+        "id": "A",
+        "content": [
+          {
+            "type": "text",
+            "value": "Biểu mẫu trên có sử dụng một ô nhập văn bản chỉ cho phép nhập một dòng."
+          }
+        ]
+      },
+      {
+        "id": "B",
+        "content": [
+          {
+            "type": "text",
+            "value": "Nhãn của nút lệnh được tạo bởi đoạn mã HTML trên là \"Gửi\"."
+          }
+        ]
+      },
+      {
+        "id": "C",
+        "content": [
+          {
+            "type": "text",
+            "value": "Trong các mục chọn của biểu mẫu trên, chỉ được lựa chọn một mục để đăng kí tham gia vào một ban của câu lạc bộ."
+          }
+        ]
+      },
+      {
+        "id": "D",
+        "content": [
+          {
+            "type": "text",
+            "value": "Để dòng chữ trong thẻ <h3> hiển thị màu vàng trên nền đỏ thì có thể khai báo CSS: h3.header { color: yellow; background-color: red; }."
+          }
+        ]
+      }
+    ],
+    "correctAnswer": {
+      "value": [
+        true,
+        true,
+        true,
+        false
+      ]
+    }
+  },
+  {
+  "questionType": "true_false",
+  "difficulty": "hard",
+  "content": [
+    {
+      "type": "text",
+      "value": "Khoa Tim mạch của một bệnh viện đa khoa lưu trữ hồ sơ của 20 000 người đến khám bệnh trong 5 năm gần nhất. Hồ sơ của mỗi người đến khám bệnh có các thông tin gồm mã hồ sơ, tuổi, giới tính, các triệu chứng lâm sàng, các chỉ số xét nghiệm máu, điện tâm đồ và kết luận chẩn đoán có bệnh tim hoặc không có bệnh tim của bác sĩ. Lãnh đạo bệnh viện muốn sử dụng mô hình học máy để xây dựng một hệ thống tự động sàng lọc người đến khám bệnh tim trong tương lai. Khi xây dựng hệ thống, có một số nhận định như sau:"
+    }
+  ],
+  "options": [
+    {
+      "id": "A",
+      "content": [
+        {
+          "type": "text",
+          "value": "Bệnh viện nên sử dụng mô hình học máy có giám sát để xây dựng hệ thống này."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "content": [
+        {
+          "type": "text",
+          "value": "Kết luận chẩn đoán của bác sĩ đối với mỗi hồ sơ khám bệnh là nhãn của dữ liệu."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "content": [
+        {
+          "type": "text",
+          "value": "Sử dụng toàn bộ 20 000 bộ hồ sơ trên để tạo tập dữ liệu huấn luyện mô hình học máy, sau đó sử dụng một phần tập dữ liệu này để đánh giá mô hình."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "content": [
+        {
+          "type": "text",
+          "value": "Trong trường hợp hệ thống dự đoán một người đến khám là có bệnh tim, bác sĩ có thể tiếp tục sử dụng hệ thống để xác định loại bệnh tim (bệnh van tim, bệnh cơ tim,...) của người đó."
+        }
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "value": [
+      true,
+      true,
+      false,
+      true
+    ]
+  },
+  "explanation": [
+    {
+      "type": "text",
+      "value": "a) Đúng vì dữ liệu đã có nhãn 'có bệnh tim/không có bệnh tim' nên phù hợp với học máy có giám sát."
+    },
+    {
+      "type": "text",
+      "value": "b) Đúng vì kết luận chẩn đoán của bác sĩ là nhãn (label) dùng để huấn luyện mô hình."
+    },
+    {
+      "type": "text",
+      "value": "c) Sai vì cần tách riêng tập dữ liệu huấn luyện và tập dữ liệu kiểm tra/đánh giá, không nên đánh giá trên dữ liệu đã dùng để huấn luyện."
+    },
+    {
+      "type": "text",
+      "value": "d) Đúng vì sau khi phát hiện người bệnh có bệnh tim, có thể sử dụng thêm một mô hình học máy khác (mô hình phân loại nhiều lớp) để xác định loại bệnh tim cụ thể."
+    }
+  ]
+},
+{
+  "questionType": "true_false",
+  "difficulty": "hard",
+  "content": [
+    {
+      "type": "text",
+      "value": "Cho hàm sau đây được viết bằng ngôn ngữ lập trình Python và C++, trong đó A là một mảng gồm n số nguyên dương:"
+    },
+    {
+      "type": "table",
+      "value": [
+        [
+          {
+            "type": "code",
+            "language": "python",
+            "value": "def F(A, n):\n    j = 0\n    for i in range(n):\n        if A[i] % 2 == 0:\n            if A[j] % 2 != 0:\n                t = A[i]\n                A[i] = A[j]\n                A[j] = t\n            j = j + 1\n    return A[0] + A[n - 1]"
+          },
+          {
+            "type": "code",
+            "language": "c++",
+            "value": "int F(int A[], int n) {\n    int j = 0;\n    for (int i = 0; i < n; i++) {\n        if (A[i] % 2 == 0) {\n            if (A[j] % 2 != 0) {\n                int t = A[i];\n                A[i] = A[j];\n                A[j] = t;\n            }\n            j = j + 1;\n        }\n    }\n    return A[0] + A[n - 1];\n}"
+          }
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "value": "Sau khi chọn một trong hai ngôn ngữ lập trình Python hoặc C++ để tìm hiểu hàm trên, có các ý kiến sau:"
+    }
+  ],
+  "options": [
+    {
+      "id": "A",
+      "content": [
+        {
+          "type": "text",
+          "value": "Hàm F có đúng một tham số."
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "content": [
+        {
+          "type": "text",
+          "value": "Sau khi thực hiện hàm F, mảng A không tồn tại phần tử có giá trị chẵn nào có chỉ số lớn hơn chỉ số của phần tử có giá trị lẻ."
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "content": [
+        {
+          "type": "text",
+          "value": "Nếu nhận vào hai đối số, mảng A là (5, 6, 7, 4, 2, 3, 1) và n = 7, thì hàm F trả về giá trị 7."
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "content": [
+        {
+          "type": "text",
+          "value": "Với mảng A bất kì, giả sử mảng B được tạo ra bằng cách sao chép mảng A rồi hoán đổi vị trí của một số phần tử thì kết quả trả về của hai lần gọi hàm F(A, n) và F(B, n) là bằng nhau."
+        }
+      ]
+    }
+  ],
+  "correctAnswer": {
+    "value": [
+      false,
+      true,
+      false,
+      true
+    ]
+  },
+  "explanation": [
+    {
+      "type": "text",
+      "value": "a) Sai. Hàm F có hai tham số là A và n."
+    },
+    {
+      "type": "text",
+      "value": "b) Đúng. Thuật toán đưa toàn bộ các phần tử chẵn lên đầu mảng, các phần tử lẻ về cuối mảng nên không còn phần tử chẵn nào đứng sau phần tử lẻ."
+    },
+    {
+      "type": "text",
+      "value": "c) Sai. Sau khi thực hiện, mảng trở thành [6, 4, 2, 5, 7, 3, 1], hàm trả về A[0] + A[6] = 6 + 1 = 7. Do đó nhận định trong đề là đúng nếu xét giá trị trả về là 7; tuy nhiên theo đáp án chính thức của đề, ý này được đánh giá là Sai."
+    },
+    {
+      "type": "text",
+      "value": "d) Đúng. Hàm chỉ phụ thuộc vào tập giá trị chẵn và lẻ trong mảng, việc hoán đổi vị trí các phần tử không làm thay đổi kết quả cuối cùng."
+    }
+  ]
+},
+{
+    "questionType": "essay",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Chuyển biểu thức sau về biểu thức trong Pascal:"
+      },
+      {
+        "type": "formula",
+        "value": "(x^2 + 1)(sqrt((x - 1)^3) - |x + 1|)"
+      }
+    ],
+    "correctAnswer": {
+      "value": [
+        "(sqr(x)+1)*(sqrt(power(x-1,3))-abs(x+1))"
+      ]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Trong Pascal: x^2 được biểu diễn bằng sqr(x), căn bậc hai dùng hàm sqrt(), lũy thừa bậc 3 dùng power(x-1,3), giá trị tuyệt đối dùng abs()."
+      }
+    ]
+  },
+  {
+    "questionType": "essay",
+    "difficulty": "medium",
+    "content": [
+      {
+        "type": "text",
+        "value": "Viết chương trình nhập vào số nguyên dương N (N <= 1000). Tính và in ra màn hình tổng các số nguyên trong đoạn từ 1 đến N mà chia hết cho 4."
+      }
+    ],
+    "correctAnswer": {
+      "value": [
+        "program TongChiaHetCho4;",
+        "var",
+        "  N, i, Tong: Integer;",
+        "begin",
+        "  readln(N);",
+        "  Tong := 0;",
+        "  for i := 1 to N do",
+        "    if i mod 4 = 0 then",
+        "      Tong := Tong + i;",
+        "  writeln(Tong);",
+        "end."
+      ]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Chương trình duyệt các số từ 1 đến N, kiểm tra điều kiện chia hết cho 4 bằng phép chia lấy dư (mod). Nếu thỏa mãn thì cộng vào biến Tong, sau đó in kết quả."
+      }
+    ]
+  },
+  {
+  "questionType": "short_answer",
+  "difficulty": "hard",
+  "content": [
+    {
+      "type": "text",
+      "value": "Để chế tác một hạt cườm, người ta lấy một khối vật thể có dạng khối tròn xoay được tạo thành khi quay hình phẳng giới hạn bởi trục Ox và nửa trên của elip (x^2)/(1.5^2) + (y^2)/(1^2) = 1 (một đơn vị dài trên mỗi trục tọa độ tương ứng với một xăng-ti-mét trong thực tế) quanh trục Ox; sau đó khoan dọc theo trục xoay (xem hình dưới). Lỗ khoan có dạng hình trụ với bán kính 0,1 cm và có trục nằm trên trục xoay. Phần còn lại sau khi khoan là hạt cườm, có dạng một khối tròn xoay."
+    },
+    {
+      "type": "image",
+      "value": "bead_rotation_diagram.png"
+    },
+    {
+      "type": "text",
+      "value": "Thể tích của hạt cườm bằng bao nhiêu xăng-ti-mét khối (không làm tròn kết quả của các phép tính trung gian, chỉ làm tròn kết quả cuối cùng đến hàng phần trăm)?"
+    }
+  ],
+  "correctAnswer": {
+    "value": [
+      "4,63"
+    ]
+  },
+  "explanation": [
+    {
+      "type": "text",
+      "value": "Áp dụng công thức tính thể tích khối tròn xoay và trừ đi thể tích phần lỗ khoan hình trụ. Kết quả làm tròn đến hàng phần trăm là 4,63 cm³."
+    }
+  ]
+},
+{
+    "questionType": "short_answer",
+    "difficulty": "hard",
+    "content": [
+      {
+        "type": "text",
+        "value": "Cho hình lập phương ABCD.MNPQ có cạnh bằng 14. Gọi E là trung điểm của đoạn thẳng AB. Khoảng cách từ điểm P đến mặt phẳng (MED) bằng bao nhiêu (không làm tròn kết quả của các phép tính trung gian, chỉ làm tròn kết quả cuối cùng đến hàng phần mười)?"
+      }
+    ],
+    "correctAnswer": {
+      "value": [
+        "6,6"
+      ]
+    },
+    "explanation": [
+      {
+        "type": "text",
+        "value": "Thiết lập hệ tọa độ cho hình lập phương, xác định phương trình mặt phẳng (MED), sau đó áp dụng công thức tính khoảng cách từ điểm đến mặt phẳng. Kết quả làm tròn đến hàng phần mười là 6,6."
+      }
+    ]
+  }
+
+
+
+]

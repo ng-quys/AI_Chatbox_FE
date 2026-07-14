@@ -4,22 +4,22 @@ import { FcGoogle } from "react-icons/fc";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useState, useEffect } from "react";
 
 import AuthLayout from "../../layouts/AuthLayout";
-
 import logo from "../../assets/images/logo.png";
-
 import { loginSchema } from "../../utils/validation"; 
-import { useState } from "react";
 
 type LoginFormData = yup.InferType<typeof loginSchema>;
 
 export default function Login() {
   const navigate = useNavigate();
-const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<LoginFormData>({
     resolver: yupResolver(loginSchema),
@@ -30,12 +30,27 @@ const [showPassword, setShowPassword] = useState(false);
     },
   });
 
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) {
+      setValue("email", savedEmail);
+      setValue("rememberMe", true);
+    }
+  }, [setValue]);
+
+
   const onSubmit = async (data: LoginFormData) => {
     try {
       console.log("Dữ liệu chuẩn gửi lên API Đăng nhập:", data);
       
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      if (data.rememberMe) {
+        localStorage.setItem("rememberedEmail", data.email.trim());
+      } else {
+        localStorage.removeItem("rememberedEmail");
+      }
 
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       navigate("/dashboard");
     } catch (error) {
       console.error("Lỗi đăng nhập hệ thống:", error);
@@ -102,7 +117,6 @@ const [showPassword, setShowPassword] = useState(false);
             <Link to="/forgot-password">Quên mật khẩu?</Link>
           </div>
 
-          
           <button 
             type="submit" 
             className="btn-primary-shared" 
