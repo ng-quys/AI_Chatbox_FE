@@ -56,7 +56,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Register() {
   const [step, setStep] = useState<RegisterStep>(1)
-  const navigate = useNavigate();;
+  const navigate = useNavigate();
 
   const [form, setForm] = useState<RegisterForm>({
     lastName: "",
@@ -118,6 +118,15 @@ export default function Register() {
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
+  };
+
+// Hàm này chỉ kiểm tra xem Bước 1 có hợp lệ hay không để bật/tắt nút click ngầm, HOÀN TOÀN KHÔNG gọi setErrors!
+  const checkStepOneValid = () => {
+    if (!form.lastName.trim() || !onlyLettersRegex.test(form.lastName)) return false;
+    if (!form.firstName.trim() || !onlyLettersRegex.test(form.firstName)) return false;
+    if (!form.email.trim() || !emailRegex.test(form.email)) return false;
+    if (!form.phone.trim() || !/^\d{9}$/.test(form.phone)) return false;
+    return true;
   };
 
   const validateStepTwo = () => {
@@ -383,11 +392,12 @@ export default function Register() {
                 <button
                   type="button"
                   className="register-select"
-                  onClick={() =>
-                    setOpenDropdown(
-                      openDropdown === "organization" ? null : "organization"
-                    )
-                  }
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    padding: 0, 
+                    position: "relative",
+                  }}
                 >
                   <span>{form.organization}</span>
                   <FiChevronDown />
@@ -427,6 +437,7 @@ export default function Register() {
               <p className="register-login-text">
                 Bạn đã có tài khoản? <Link to="/login">Đăng nhập</Link>
               </p>
+              <RegisterStepIndicator activeStep={1} setStep={setStep} validateStepOne={validateStepOne} checkStepOneValid={checkStepOneValid} />
             </div>
           </section>
         )}
@@ -512,10 +523,55 @@ export default function Register() {
               <p className="register-login-text">
                 Bạn đã có tài khoản? <Link to="/login">Đăng nhập</Link>
               </p>
+              <RegisterStepIndicator activeStep={2} setStep={setStep} validateStepOne={validateStepOne} checkStepOneValid={checkStepOneValid} />
             </div>
           </section>
         )}
       </main>
+    </div>
+  );
+}
+
+// ==========================================
+// THÀNH PHẦN THANH TIẾN ĐỘ ĐĂNG KÝ 
+// ==========================================
+interface RegisterStepIndicatorProps {
+  activeStep: RegisterStep;
+  setStep: (step: RegisterStep) => void;
+  validateStepOne: () => boolean;
+  checkStepOneValid: () => boolean; 
+}
+
+function RegisterStepIndicator({ activeStep, setStep, validateStepOne, checkStepOneValid }: RegisterStepIndicatorProps) {
+  const handleDotClick = (targetStep: RegisterStep) => {
+    if (targetStep === 1) {
+      setStep(1);
+      return;
+    }
+
+    if (targetStep === 2 && validateStepOne()) {
+      setStep(2);
+    }
+  };
+
+  return (
+    <div className="forgot-step-indicator" style={{ marginTop: "32px" }}>
+      {[1, 2].map((s) => {
+        const isClickable = s === 1 || (s === 2 && checkStepOneValid()); 
+        
+        return (
+          <span
+            key={s}
+            className={`step-dot ${activeStep === s ? "active" : ""} ${isClickable ? "clickable" : ""}`}
+            onClick={() => handleDotClick(s as RegisterStep)}
+            style={{
+              cursor: isClickable ? "pointer" : "not-allowed",
+              opacity: isClickable || activeStep === s ? 1 : 0.4,
+              transition: "all 0.2s ease",
+            }}
+          />
+        );
+      })}
     </div>
   );
 }
