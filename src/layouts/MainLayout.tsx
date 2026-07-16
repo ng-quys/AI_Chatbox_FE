@@ -9,9 +9,9 @@ const mainMenus = [
   { key: "home", label: "Trang chủ", path: "/dashboard" },
   { key: "quick-create", label: "Tạo đề nhanh", path: "/dashboard/quick-create" },
   { key: "outline-create", label: "Tạo đề cương", path: "/dashboard/outline" },
-  { key: "sample-create", label: "Tạo đề với mẫu", path: "/dashboard/sample" },
-  { key: "question-bank", label: "Ngân hàng câu hỏi", path: "/dashboard/bank" },
-  { key: "gpt-program", label: "Chương trình GPT", path: "/dashboard/gpt" },
+  { key: "sample-create", label: "Tạo đề với ma trận", path: "/dashboard/sample" },
+  { key: "question-bank", label: "Ngân hàng câu hỏi", path: "/dashboard/bank-questions" },
+  { key: "gpt-program", label: "Quản lý thư mục", path: "/dashboard/folders" },
 ];
 
 const settingMenus = [
